@@ -19,24 +19,21 @@ void setup()
 {
 	//++++++++++++++++++++++++bloque de configuracion+++++++++++++++++++
  Serial.begin(9600);
- Serial.println( "prueba de reles" );
+ Serial.println( "prueba de captadores" );
 
 configura_actuadores();
- 
+configura_captadores();
 }
 
 void loop() 
 {
-test_actuador(paro);
-test_actuador(marcha);
-test_actuador(seguridad);
-test_actuador(gas);
+test_captador(pulsador_arranque);
+test_captador(pulsador_paro);
+test_captador(pulsador_gas);
+test_captador(selector_auto);
+test_captador(rele_220);
+test_captador(contacto_activacion);
 
 
-//funcion_1(); // cualquier codigo o funcion correctamente definida en
-//funcion_2(); // alguna parte del proyecto
-
-//+++++++++++++++++++++++++++bucle principal++++++++++++++++++++++++++++
- 
 }
 

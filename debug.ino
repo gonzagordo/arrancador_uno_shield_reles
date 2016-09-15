@@ -11,4 +11,10 @@ delay(1000);
 
 }
 
-
+void test_captador(int elegida){
+	
+	if (digitalRead(elegida)==0){
+		Serial.print( "pulsada la = " );
+		Serial.println(elegida);
+		}
+	}
