@@ -10,3 +10,14 @@ void configura_captadores(){
 	
 	}
 	 
+// las entradas son pullup por lo que al pulsar se detecta un cero para simplificar invierto  
+boolean captador(int elegida){
+	boolean estado= false;
+	if (digitalRead(elegida)==0){
+		Serial.print( "pulsada la = " );    //debug
+		Serial.println(elegida);			//debug
+		estado=true;
+		}
+	return estado;
+	}
+

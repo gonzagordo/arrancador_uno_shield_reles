@@ -27,13 +27,46 @@ configura_captadores();
 
 void loop() 
 {
-test_captador(pulsador_arranque);
-test_captador(pulsador_paro);
-test_captador(pulsador_gas);
-test_captador(selector_auto);
-test_captador(rele_220);
-test_captador(contacto_activacion);
+	//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	//++++++++++++control del paro++++++++++++++++++++++++++++++++++++++
+if ( captador(pulsador_paro) || paro_automatico() ){
+	on(paro);		
+	}
+	
+else {
+	off(paro);
+	}
+	//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	
+	
+	//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	//++++++++++++control del gas+++++++++++++++++++++++++++++++++++++++
+if ( !captador(pulsador_gas) ){
+	on (seguridad);
+	on (gas);
+	}
+else {
+	off (seguridad);
+	off (gas);
+	
+	}	
 
+	//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+if ( !captador(rele_220) && ( captador(pulsador_arranque) || arranque_automatico() ) ){
+	on (marcha);
+	}
+	
+else {
+	off (marcha);
+	}
+	
+	//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	//++++++++++++control del arranque++++++++++++++++++++++++++++++++++
+	
 
+	//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	
+	
+	
 }
 
